@@ -15,7 +15,6 @@
     "react-native-gridview": "0.1.2",
     "react-native-keyboard-aware-scroll-view": "0.5.0",
     "react-native-modal": "5.4.0",
-    "react-native-vector-icons": "^6.0.2",
     "react-navigation": "2.2.4"
   },
   "devDependencies": {
