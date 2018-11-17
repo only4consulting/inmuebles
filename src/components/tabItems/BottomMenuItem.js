@@ -1,18 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
-// import { Feather } from "@expo/vector-icons";
+import { View } from "react-native";
+import Feather from 'react-native-vector-icons/Feather';
 
 function BottomMenuItem(props) {
+  console.log("Iconos prop: ", props.icon);
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text>{props.icon}</Text>
-        {/*
         <Feather
           name={props.icon}
           style={props.active ? styles.icon.active : styles.icon.inactive}
         />
-        */}
       </View>
     </View>
   );
