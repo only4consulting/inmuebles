@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StatusBar, TextInput, Text } from "react-native";
 import { Header, Item } from "native-base";
-// import { Feather } from "@expo/vector-icons";
+import Feather from 'react-native-vector-icons/Feather';
 import { Constants } from "../../config";
 import getHeaderContainerStyle from "./getHeaderContainerStyle";
 
@@ -16,10 +16,7 @@ function SearchHeader(props) {
       <StatusBar barStyle="dark-content" backgroundColor="#000" />
       <View style={styles.content}>
         <View style={styles.iconContainer}>
-          <Text>Feather</Text>
-          {/*
           <Feather name="search" style={styles.icon} />
-          */}
         </View>
 
         <Item style={styles.inputContainer}>

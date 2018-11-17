@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import Modal from "react-native-modal";
-// import { Feather } from "@expo/vector-icons";
+import Feather from 'react-native-vector-icons/Feather';
 import { Constants } from "../../config";
 import { Buttons } from "../../components";
 
@@ -10,8 +10,7 @@ function ContactOwnerModal(props) {
     <Modal isVisible={true}>
       <View style={styles.container}>
         <View style={styles.iconContainer}>
-          <Text>Feather</Text>{/*
-          <Feather name="phone" style={styles.icon} />*/}
+          <Feather name="phone" style={styles.icon} />
         </View>
 
         <Text style={styles.heading}>{Constants.HI_THERE}</Text>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import { Button } from "native-base";
-// import { Feather } from "@expo/vector-icons";
+import Feather from 'react-native-vector-icons/Feather';
 
 function SmButton(props) {
   return (
@@ -10,7 +10,7 @@ function SmButton(props) {
       onPress={() => !props.busy && props.onPress()}
     >
       {props.busy === true ? (
-        <Text>Feather</Text>
+        <Feather name="zap" style={styles.icon} />
       ) : (
           <Text style={styles.text}>{props.text}</Text>
         )}

@@ -1,13 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
-// import { Feather } from "@expo/vector-icons";
+import Feather from 'react-native-vector-icons/Feather';
 
 function HouseDetailListItem(props) {
   return (
     <View style={styles.container}>
-      <Text>Feather</Text>
-      {/*}
-      <Feather name={props.icon} style={styles.icon} />*/}
+      <Feather name={props.icon} style={styles.icon} />
       <View style={{ marginLeft: 10 }}>
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.subtitle}>{props.subtitle}</Text>
