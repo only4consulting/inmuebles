@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
-import { View, Image, StatusBar } from 'react-native';
-import styles from './styles';
-
-const img = require('../../assets/images/house.png');
+import React, { Component } from "react";
+import { View, Image, StatusBar } from "react-native";
+import styles from "./styles";
 
 class Splash extends Component {
-
   componentDidMount() {
     setTimeout(() => {
-      this.props.navigation.navigate('_dashboard');
+      this.props.navigation.navigate("_home");
     }, 5000);
   }
 
@@ -19,7 +16,7 @@ class Splash extends Component {
         <View style={styles.container}>
           <View style={styles.imageContainer}>
             <Image
-              source={img}
+              source={require("../../assets/images/house.png")}
               style={styles.image}
             />
           </View>

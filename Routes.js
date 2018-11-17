@@ -5,11 +5,12 @@ import * as Screens from './src/screens';
 const RootStack = createStackNavigator(
   {
     _splash: Screens.Splash,
-    // _login: Screens.Login,
-    // _register: Screens.Register,
+    _home: Screens.Home,
+    _login: Screens.Login,
+    _register: Screens.Register,
     _dashboard: Screens.Dashboard,
-    // _houseDetail: Screens.HouseDetail,
-    // _filterResult: Screens.FilterResult
+    _houseDetail: Screens.HouseDetail,
+    _filterResult: Screens.FilterResult
   },
   {
     initialRouteName: '_splash',

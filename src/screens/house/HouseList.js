@@ -5,10 +5,12 @@ import { Headers, Tabs, Lists } from "../../components";
 function HouseList(props) {
   return (
     <View style={styles.container}>
+      {/*}
       <Headers.SearchHeader
         searchText={props.searchText}
         onChangeSearchText={text => props.onChangeSearchText(text)}
       />
+      */}
       <Tabs.ExploreTab
         labels={props.tabLabels}
         active={props.activeTabItem}

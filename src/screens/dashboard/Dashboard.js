@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import { Text } from 'react-native';
 import { Container, Tabs, TabHeading, Tab } from "native-base";
 import { SafeAreaView } from "react-navigation";
 import styles from "./styles";
 import { Constants } from "../../config";
-import { TabItems } from '../../components';
-// import { Modals, TabItems } from "../../components";
+import { Modals, TabItems } from "../../components";
 import HouseList from "../house/HouseList";
-// import Profile from "../profile/Profile";
-// import NotificationsPermission from "../notifications/NotificationsPermission";
-// import Notifications from "../notifications/Notifications";
-// import Filter from "../filter/Filter";
+import Profile from "../profile/Profile";
+import NotificationsPermission from "../notifications/NotificationsPermission";
+import Notifications from "../notifications/Notifications";
+import Filter from "../filter/Filter";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -192,8 +190,7 @@ class Dashboard extends Component {
                   />
                 </TabHeading>
               }
-            ><Text>Texto 2</Text>
-              {/*
+            >
               <Filter
                 busy={this.state.filterFormBusy}
                 categories={this.state.filterCategories}
@@ -211,7 +208,6 @@ class Dashboard extends Component {
                 onSubmitPress={() => this.onFilterSubmitPress()}
                 onBackButtonPress={() => this.setState({ currentPage: 1 })}
               />
-              */}
             </Tab>
 
             <Tab
@@ -223,8 +219,7 @@ class Dashboard extends Component {
                   />
                 </TabHeading>
               }
-            > <Text>Texto 3</Text>
-              {/*
+            >
               {!this.state.notificationsEnabled && (
                 <NotificationsPermission
                   onAllowPress={() => this.allowNotifications()}
@@ -238,7 +233,6 @@ class Dashboard extends Component {
                   }}
                 />
               )}
-                */}
             </Tab>
 
             <Tab
@@ -250,8 +244,7 @@ class Dashboard extends Component {
                   />
                 </TabHeading>
               }
-            > <Text>Texto 4</Text>
-              {/*
+            >
               <Profile
                 formBusy={this.state.profileFormBusy}
                 name={this.state.profileName}
@@ -271,11 +264,9 @@ class Dashboard extends Component {
                 onFormSubmitPress={() => this.save()}
                 onLogoutPress={() => this.props.navigation.navigate("_home")}
               />
-              */}
             </Tab>
           </Tabs>
 
-          {/*
           {this.state.enableLocationModalVisible === true && (
             <Modals.LocationPermissionModal
               onCloseIconPress={() =>
@@ -293,7 +284,6 @@ class Dashboard extends Component {
               onAllowPress={() => this.enableContactSharing()}
             />
           )}
-            */}
         </Container>
       </SafeAreaView>
     );
