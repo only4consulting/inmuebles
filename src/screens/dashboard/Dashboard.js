@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Container, Tabs, TabHeading, Tab } from "native-base";
 import { SafeAreaView } from "react-navigation";
+import { connect } from 'react-redux';
+import { setActiveTab } from '../../actions/dashboardActions';
 import styles from "./styles";
 import { Constants } from "../../config";
 import { Modals, TabItems } from "../../components";
@@ -15,7 +17,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      activeExploreTabItem: Constants.EXPLORE_TAB_LABELS[0],
+      // activeExploreTabItem: Constants.EXPLORE_TAB_LABELS[0],
       houseListSearchText: "",
       profileFormBusy: false,
       profileName: Constants.PROFILE_NAME,
@@ -37,9 +39,10 @@ class Dashboard extends Component {
   }
 
   onExploreTabItemPress(index) {
-    this.setState({
-      activeExploreTabItem: Constants.EXPLORE_TAB_LABELS[index]
-    });
+    this.props.doSetActiveTab(Constants.EXPLORE_TAB_LABELS[index]);
+    // this.setState({
+    //   activeExploreTabItem: Constants.EXPLORE_TAB_LABELS[index]
+    // });
   }
 
   onFilterItemPress(categoryIndex, itemIndex) {
@@ -147,6 +150,7 @@ class Dashboard extends Component {
   }
 
   render() {
+    console.log("Ruso:", this.props.activeExploreTabItem);
     return (
       <SafeAreaView
         style={{ backgroundColor: "#FFF", flex: 1 }}
@@ -172,7 +176,7 @@ class Dashboard extends Component {
             >
               <HouseList
                 tabLabels={Constants.EXPLORE_TAB_LABELS}
-                activeTabItem={this.state.activeExploreTabItem}
+                activeTabItem={this.props.activeExploreTabItem}
                 onTabItemPress={index => this.onExploreTabItemPress(index)}
                 rentalsListings={this.state.rentalsListings}
                 onItemPress={() => this.onHouseListItemPress()}
@@ -290,4 +294,12 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+  activeExploreTabItem: state.dashboard.activeExploreTabItem
+});
+
+const mapDispatchToProps = dispatch => ({
+  doSetActiveTab: (index) => dispatch(setActiveTab(index))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
