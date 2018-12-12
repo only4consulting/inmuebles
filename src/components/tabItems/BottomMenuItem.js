@@ -3,7 +3,6 @@ import { View } from "react-native";
 import Feather from 'react-native-vector-icons/Feather';
 
 function BottomMenuItem(props) {
-  console.log("Iconos prop: ", props.icon);
   return (
     <View style={styles.container}>
       <View style={styles.content}>

@@ -17,7 +17,6 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      // activeExploreTabItem: Constants.EXPLORE_TAB_LABELS[0],
       houseListSearchText: "",
       profileFormBusy: false,
       profileName: Constants.PROFILE_NAME,
@@ -25,7 +24,6 @@ class Dashboard extends Component {
       profileContactShare: false,
       profileLocationEnabled: false,
       notificationsEnabled: false,
-      filterCategories: Constants.FILTER_CATEGORIES,
       activeFilterCategories: [],
       filterMinPrice: 500,
       filterMaxPrice: 11000,
@@ -40,13 +38,10 @@ class Dashboard extends Component {
 
   onExploreTabItemPress(index) {
     this.props.doSetActiveTab(Constants.EXPLORE_TAB_LABELS[index]);
-    // this.setState({
-    //   activeExploreTabItem: Constants.EXPLORE_TAB_LABELS[index]
-    // });
   }
 
   onFilterItemPress(categoryIndex, itemIndex) {
-    let item = this.state.filterCategories[categoryIndex].filters[itemIndex];
+    let item = this.props.filterCategories[categoryIndex].filters[itemIndex];
     if (this.state.activeFilterCategories.includes(item)) {
       const before = this.state.activeFilterCategories.slice(
         0,
@@ -150,7 +145,16 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log("Ruso:", this.props.activeExploreTabItem);
+    // firebase.database().ref('operaciones/001').set({
+    //   description: 'venta'
+    // }).then(() => {
+    //   console.log("Se insertó")
+    // }).catch((err) => {
+    //   console.log("Error", err)
+    // });
+    // console.log("POR STATE: ", this.props.filterCategories);
+    // console.log("POR PROPS: ", this.props.filterCategories);
+
     return (
       <SafeAreaView
         style={{ backgroundColor: "#FFF", flex: 1 }}
@@ -197,7 +201,7 @@ class Dashboard extends Component {
             >
               <Filter
                 busy={this.state.filterFormBusy}
-                categories={this.state.filterCategories}
+                categories={this.props.filterCategories}
                 active={this.state.activeFilterCategories}
                 onItemPress={(categoryIndex, itemIndex) =>
                   this.onFilterItemPress(categoryIndex, itemIndex)
@@ -295,7 +299,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  activeExploreTabItem: state.dashboard.activeExploreTabItem
+  activeExploreTabItem: state.dashboard.activeExploreTabItem,
+  filterCategories: state.filter.filterCategories
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -7,7 +7,6 @@ import MultiSlider from "@ptomasroos/react-native-multi-slider";
 import numeral from "numeral";
 
 function createCategories(props) {
-  console.log("Props de filter", props);
   let res = [];
   for (let i = 0; i < props.categories.length; i++) {
     const category = props.categories[i];

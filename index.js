@@ -2,10 +2,14 @@ import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
 import { configureStore } from './src/store/configureStore';
+import { getFilters } from './src/actions/filterActions';
 import App from './App';
 
 // Crear store
 const store = configureStore();
+
+// Obtener parámetrización de la aplicación
+store.dispatch(getFilters());
 
 //Create a Component
 const AppContainer = () => {
