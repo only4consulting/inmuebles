@@ -233,10 +233,10 @@ export const ENABLE_LOCATION = "Enable location";
 /** Tabs */
 //========
 export const EXPLORE_TAB_LABELS = [
-  "Near Me",
-  "Explore city",
-  "Popular",
-  "Featured"
+  "destacados",
+  "recientes",
+  "populares",
+  "inmobiliarias"
 ];
 export const BOTTOM_MENU_ITEMS = [
   { icon: "home", route: "_houseList" },

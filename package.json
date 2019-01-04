@@ -15,6 +15,7 @@
     "react-native": "0.55.4",
     "react-native-firebase": "4.3.8",
     "react-native-gridview": "0.1.2",
+    "react-native-i18n": "^2.0.15",
     "react-native-keyboard-aware-scroll-view": "0.5.0",
     "react-native-modal": "5.4.0",
     "react-native-vector-icons": "^6.1.0",
