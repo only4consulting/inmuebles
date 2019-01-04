@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "453844680897",
+    "firebase_url": "https://inmuebles-f99bd.firebaseio.com",
+    "project_id": "inmuebles-f99bd",
+    "storage_bucket": "inmuebles-f99bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453844680897:android:8cf0efbb3491e8ba",
+        "android_client_info": {
+          "package_name": "com.inmuebles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453844680897-k82nocbo7nkf74le3926h97a7pgfhapr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiKb8kNJX-LBdiI8A8w_FZRvrvVedxruo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
