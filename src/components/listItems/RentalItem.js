@@ -20,7 +20,7 @@ function RentalItem(props) {
     >
       <View>
         <View style={styles.imageContainer}>
-          <Image source={props.image} style={styles.image} resizeMode="cover" />
+          <Image source={{ uri: props.image }} style={styles.image} resizeMode="cover" />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.price}>{props.price}</Text>

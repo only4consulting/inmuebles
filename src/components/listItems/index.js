@@ -1,6 +1,6 @@
 import NotificationsListItem from "./NotificationsListItem";
 import FilterCategoryItem from "./FilterCategoryItem";
-import RentalsListItem from "./RentalsListItem";
+import RentalsListItem from "./RentalsListItemNew";
 import HouseDetailListItem from "./HouseDetailListItem";
 import RentalItem from "./RentalItem";
 

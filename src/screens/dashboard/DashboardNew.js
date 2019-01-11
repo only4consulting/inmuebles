@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { Container, Tabs, TabHeading, Tab } from "native-base";
 import { SafeAreaView } from "react-navigation";
 import { connect } from 'react-redux';
-import { setActiveTab } from '../../actions/dashboardActions';
+import { setActiveTab, setRentalItems } from '../../actions/dashboardActions';
 import styles from "./styles";
-import { Constants } from "../../config";
 import { TabItems } from "../../components";
 import HouseList from "../house/HouseListNew";
 
@@ -12,10 +11,9 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 1,
-      activeFilterCategories: [],
-      rentalsListings: Constants.RENTAL_LISTINGS
+      currentPage: 1
     };
+    this.props.doSetRentalItems();
   }
 
   onExploreTabItemPress(index) {
@@ -34,7 +32,6 @@ class Dashboard extends Component {
   }
 
   render() {
-
     return (
       <SafeAreaView style={{ backgroundColor: "#FFF", flex: 1 }} forceInset={{ top: "never" }} >
         <Container>
@@ -58,10 +55,8 @@ class Dashboard extends Component {
                 tabLabels={this.props.exploreTabLabels}
                 activeTabItem={this.props.activeExploreTabItem}
                 onTabItemPress={index => this.onExploreTabItemPress(index)}
-                rentalsListings={this.state.rentalsListings}
-                onItemPress={() => this.onHouseListItemPress()}
-                searchText={this.state.houseListSearchText}
-                onChangeSearchText={text => this.onChangeSearchText(text)} />
+                rentalsListings={this.props.rentalsListings}
+                onItemPress={() => this.onHouseListItemPress()} />
 
             </Tab>
 
@@ -76,11 +71,13 @@ class Dashboard extends Component {
 const mapStateToProps = state => ({
   activeExploreTabItem: state.dashboard.activeExploreTabItem,
   exploreTabLabels: state.dashboard.exploreTabLabels,
+  rentalsListings: state.dashboard.rentalsListings,
   filterCategories: state.filter.filterCategories
 });
 
 const mapDispatchToProps = dispatch => ({
-  doSetActiveTab: (index) => dispatch(setActiveTab(index))
+  doSetActiveTab: (index) => dispatch(setActiveTab(index)),
+  doSetRentalItems: () => dispatch(setRentalItems())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

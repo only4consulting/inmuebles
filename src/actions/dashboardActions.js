@@ -1,14 +1,28 @@
 import i18n from '../i18n';
 import { Constants } from '../config';
+import { getItemsGroupedByHighlight } from '../utils/utilDashboard';
 
 export const SET_ACTIVE_TAB = 'SET_ACTIVE_TAB';
 export const SET_TAB_LABELS = 'SET_TAB_LABELS';
+export const SET_RENTAL_ITEMS = 'SET_RENTAL_ITEMS';
 
 export const setActiveTab = (tab) => {
   return ({
     type: SET_ACTIVE_TAB,
     payload: tab
   });
+}
+
+export const setRentalItems = () => async (dispatch) => {
+
+  // Obtener los ítems 
+  const items = await getItemsGroupedByHighlight();
+
+  dispatch({
+    type: SET_RENTAL_ITEMS,
+    payload: items
+  });
+
 }
 
 export const setTabLabels = () => (dispatch) => {
