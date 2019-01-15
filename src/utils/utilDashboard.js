@@ -25,8 +25,6 @@ export const getItemsGroupedByHighlight = async () => {
   //Obtener todas las propiedades destacadas
   const data = await firebase.firestore().collection('inmuebles').where('destacado', '==', true).get();
 
-  debugger;
-
   //Recorrer los documentos encontrados
   data.docs.map(doc => {
 

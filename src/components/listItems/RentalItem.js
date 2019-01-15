@@ -7,7 +7,7 @@ import {
   StyleSheet
 } from "react-native";
 
-function RentalItem(props) {
+const RentalItem = (props) => {
   return (
     <TouchableHighlight
       style={

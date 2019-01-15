@@ -1,9 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 import { ExploreTabItem } from "../tabItems";
-import i18n from '../../i18n';
 
-function createTabItems(props) {
+const createTabItems = (props) => {
   let items = [];
   let labels = props.labels;
   let active = props.active;
@@ -22,7 +21,7 @@ function createTabItems(props) {
   return items;
 }
 
-function ExploreTab(props) {
+const ExploreTab = (props) => {
   return <View style={styles.container}>{createTabItems(props)}</View>;
 }
 

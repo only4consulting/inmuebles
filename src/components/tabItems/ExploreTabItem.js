@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-function ExploreTabItem(props) {
+const ExploreTabItem = (props) => {
   return (
     <View style={styles.container}>
       <Text

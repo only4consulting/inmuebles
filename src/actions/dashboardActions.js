@@ -5,15 +5,29 @@ import { getItemsGroupedByHighlight } from '../utils/utilDashboard';
 export const SET_ACTIVE_TAB = 'SET_ACTIVE_TAB';
 export const SET_TAB_LABELS = 'SET_TAB_LABELS';
 export const SET_RENTAL_ITEMS = 'SET_RENTAL_ITEMS';
+export const SET_LOADING = 'SET_LOADING';
 
 export const setActiveTab = (tab) => {
+  console.log("Acctivta", tab);
   return ({
     type: SET_ACTIVE_TAB,
     payload: tab
   });
 }
 
+export const setLoading = (loading) => {
+  return (
+    {
+      type: SET_LOADING,
+      payload: loading
+    }
+  )
+};
+
 export const setRentalItems = () => async (dispatch) => {
+
+  //Indicar que se están cargando los datos
+  dispatch(setLoading(true));
 
   // Obtener los ítems 
   const items = await getItemsGroupedByHighlight();
@@ -22,6 +36,9 @@ export const setRentalItems = () => async (dispatch) => {
     type: SET_RENTAL_ITEMS,
     payload: items
   });
+
+  //Indicar que terminó la carga de datos
+  dispatch(setLoading(false));
 
 }
 

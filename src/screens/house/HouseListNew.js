@@ -1,6 +1,23 @@
 import React from "react";
 import { View } from "react-native";
+import { Spinner } from 'native-base';
+import { connect } from 'react-redux';
 import { Tabs, Lists } from "../../components";
+
+const renderBody = (props) => {
+  console.log("propp", props);
+  if (props.loading) {
+    return (
+      <Spinner size="large" color="black" />
+    )
+  }
+  return (
+    <Lists.RentalsList
+      rentals={props.rentalsListings}
+      onItemPress={() => props.onItemPress()}
+    />
+  );
+}
 
 const HouseList = (props) => {
   return (
@@ -11,10 +28,7 @@ const HouseList = (props) => {
         onItemPress={index => props.onTabItemPress(index)}
       />
       <View style={styles.content}>
-        <Lists.RentalsList
-          rentals={props.rentalsListings}
-          onItemPress={() => props.onItemPress()}
-        />
+        {renderBody(props)}
       </View>
     </View>
   );
@@ -31,4 +45,8 @@ const styles = {
   }
 };
 
-export default HouseList;
+const mapStateToProps = state => ({
+  loading: state.dashboard.loading
+});
+
+export default connect(mapStateToProps, null)(HouseList);

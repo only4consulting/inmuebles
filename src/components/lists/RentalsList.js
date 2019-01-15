@@ -2,7 +2,7 @@ import React from "react";
 import { List } from "native-base";
 import { RentalsListItem } from "../listItems";
 
-function RentalsList(props) {
+const RentalsList = (props) => {
   return (
     <List
       dataArray={props.rentals}

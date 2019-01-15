@@ -1,16 +1,29 @@
-import { SET_ACTIVE_TAB, SET_TAB_LABELS, SET_RENTAL_ITEMS } from '../actions/dashboardActions';
+import {
+  SET_ACTIVE_TAB,
+  SET_TAB_LABELS,
+  SET_RENTAL_ITEMS,
+  SET_LOADING
+} from '../actions/dashboardActions';
 
 // Estado inicial
 const initialState = {
   activeExploreTabItem: '',
   exploreTabLabels: [],
-  rentalsListings: []
+  rentalsListings: [],
+  loading: false
 }
 
 export const dashboardReducer = (state = initialState, action) => {
 
   // Evaluar la acción
   switch (action.type) {
+
+    // Setear estado de la app
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload
+      }
 
     // Setear los items para ls lista
     case SET_RENTAL_ITEMS:

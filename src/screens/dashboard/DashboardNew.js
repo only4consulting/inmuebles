@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Tabs, TabHeading, Tab } from "native-base";
+import { Container, Tabs, TabHeading, Tab, Spinner } from "native-base";
 import { SafeAreaView } from "react-navigation";
 import { connect } from 'react-redux';
 import { setActiveTab, setRentalItems } from '../../actions/dashboardActions';
@@ -57,7 +57,6 @@ class Dashboard extends Component {
                 onTabItemPress={index => this.onExploreTabItemPress(index)}
                 rentalsListings={this.props.rentalsListings}
                 onItemPress={() => this.onHouseListItemPress()} />
-
             </Tab>
 
           </Tabs>
@@ -72,7 +71,8 @@ const mapStateToProps = state => ({
   activeExploreTabItem: state.dashboard.activeExploreTabItem,
   exploreTabLabels: state.dashboard.exploreTabLabels,
   rentalsListings: state.dashboard.rentalsListings,
-  filterCategories: state.filter.filterCategories
+  filterCategories: state.filter.filterCategories,
+  loading: state.dashboard.loading
 });
 
 const mapDispatchToProps = dispatch => ({
