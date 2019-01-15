@@ -8,6 +8,7 @@ import {
 // Estado inicial
 const initialState = {
   activeExploreTabItem: '',
+  activeExploreTabItemIndex: null,
   exploreTabLabels: [],
   rentalsListings: [],
   loading: false
@@ -36,14 +37,17 @@ export const dashboardReducer = (state = initialState, action) => {
     case SET_ACTIVE_TAB:
       return {
         ...state,
-        activeExploreTabItem: action.payload
+        activeExploreTabItem: action.tab,
+        activeExploreTabItemIndex: action.indx
       }
 
     // Setear las etiquetas para las fichas en su correspondiente idioma
     case SET_TAB_LABELS:
       return {
         ...state,
-        exploreTabLabels: action.payload
+        exploreTabLabels: action.payload,
+        activeExploreTabItem: action.payload[0],
+        activeExploreTabItemIndex: 0
       }
 
     default:

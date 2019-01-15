@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Tabs, Lists } from "../../components";
 
 const renderBody = (props) => {
-  console.log("propp", props);
   if (props.loading) {
     return (
       <Spinner size="large" color="black" />
