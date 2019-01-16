@@ -20,7 +20,7 @@ function TitleHeader(props) {
 
 const styles = {
   title: {
-    fontFamily: "LatoBold",
+    fontFamily: "Lato-Bold",
     fontSize: 18,
     color: "#000"
   }

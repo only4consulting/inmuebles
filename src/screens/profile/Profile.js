@@ -48,7 +48,7 @@ const styles = {
     padding: 16
   },
   logoutText: {
-    fontFamily: "LatoRegular",
+    fontFamily: "Lato-Regular",
     fontSize: 17,
     color: "#000",
     textAlign: "center"

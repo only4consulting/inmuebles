@@ -62,7 +62,7 @@ const styles = {
   },
   input: {
     flex: 1,
-    fontFamily: "LatoRegular",
+    fontFamily: "Lato-Regular",
     fontSize: 14
   },
   icon: {

@@ -23,7 +23,7 @@ const styles = {
     alignItems: "center"
   },
   text: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 16,
     color: "#5C6979",
     flex: 1

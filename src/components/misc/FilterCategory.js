@@ -30,7 +30,7 @@ function FilterCategory(props) {
 
 const styles = {
   title: {
-    fontFamily: "LatoBlack",
+    fontFamily: "Lato-Black",
     fontSize: 15,
     color: "#000"
   },

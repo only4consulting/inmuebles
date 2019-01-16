@@ -60,12 +60,12 @@ const styles = {
     width: CONTAINER_WIDTH
   },
   price: {
-    fontFamily: "LatoBlack",
+    fontFamily: "Lato-Black",
     fontSize: 20,
     color: "#000"
   },
   title: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 13,
     color: "#5F5F5F",
     marginTop: 5

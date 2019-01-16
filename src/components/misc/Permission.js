@@ -39,14 +39,14 @@ const styles = {
     justifyContent: "center"
   },
   title: {
-    fontFamily: "LatoBlack",
+    fontFamily: "Lato-Black",
     fontSize: 20,
     color: "#000",
     textAlign: "center",
     marginTop: 10
   },
   description: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 16,
     color: "#5F5F5F",
     textAlign: "center",
@@ -58,7 +58,7 @@ const styles = {
     justifyContent: "center"
   },
   denyText: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 12,
     color: "#5F5F5F",
     textAlign: "center",

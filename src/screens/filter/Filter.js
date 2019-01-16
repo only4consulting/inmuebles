@@ -93,17 +93,17 @@ const styles = {
     justifyContent: "space-between"
   },
   sliderValueText: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 15,
     color: "#000"
   },
   priceRangeText: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 17,
     color: "#000"
   },
   sliderTitle: {
-    fontFamily: "LatoBlack",
+    fontFamily: "Lato-Black",
     fontSize: 15,
     color: "#000"
   },

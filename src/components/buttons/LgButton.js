@@ -25,7 +25,7 @@ const styles = {
     borderRadius: 3
   },
   text: {
-    fontFamily: "LatoRegular",
+    fontFamily: "Lato-Regular",
     fontSize: 16,
     color: "#FFF"
   },

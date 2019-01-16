@@ -90,18 +90,18 @@ const styles = {
     alignSelf: "stretch"
   },
   title: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 15,
     color: "#000"
   },
   subtitle: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 13,
     color: "#5F5F5F",
     marginTop: 5
   },
   price: {
-    fontFamily: "LatoBlack",
+    fontFamily: "Lato-Black",
     fontSize: 17,
     color: "#000",
     marginTop: 15

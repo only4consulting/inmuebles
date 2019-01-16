@@ -27,13 +27,13 @@ const styles = {
     marginLeft: 0
   },
   label: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 16,
     color: "#5C6979",
     paddingTop: 4
   },
   input: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 17,
     color: "#000"
   }

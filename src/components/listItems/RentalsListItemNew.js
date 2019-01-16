@@ -22,7 +22,7 @@ const RentalsListItem = (props) => {
 
 const styles = {
   heading: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 16,
     color: "#5F5F5F"
   }

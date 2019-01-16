@@ -38,12 +38,12 @@ const styles = {
     flex: 1
   },
   title: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 16,
     color: "#000"
   },
   description: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 12,
     color: "#5F5F5F",
     marginTop: 2

@@ -13,7 +13,7 @@ const RootStack = createStackNavigator(
     _filterResult: Screens.FilterResult
   },
   {
-    initialRouteName: '_splash',
+    initialRouteName: '_home',
     navigationOptions: {
       gesturesEnabled: false,
       header: null

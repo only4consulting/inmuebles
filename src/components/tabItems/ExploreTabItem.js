@@ -36,11 +36,11 @@ const styles = {
   text: {
     active: {
       ...baseTextStyles,
-      fontFamily: "LatoBlack"
+      fontFamily: "Lato-Black"
     },
     inactive: {
       ...baseTextStyles,
-      fontFamily: "LatoRegular",
+      fontFamily: "Lato-Regular",
       opacity: 0.7
     }
   },

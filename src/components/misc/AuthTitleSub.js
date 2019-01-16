@@ -12,12 +12,12 @@ function AuthTitleSub(props) {
 
 const styles = {
   title: {
-    fontFamily: "LatoBlack",
+    fontFamily: "Lato-Black",
     fontSize: 20,
     color: "#000"
   },
   subtitle: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 16,
     color: "#5F5F5F",
     marginTop: 5

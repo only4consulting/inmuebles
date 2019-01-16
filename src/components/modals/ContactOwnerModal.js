@@ -52,20 +52,20 @@ const styles = {
     color: "#000"
   },
   heading: {
-    fontFamily: "LatoBlack",
+    fontFamily: "Lato-Black",
     fontSize: 20,
     color: "#000",
     marginTop: 10
   },
   body: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 15,
     color: "#A9A9A9",
     marginTop: 5,
     textAlign: "center"
   },
   boldBody: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 15,
     color: "#000",
     marginTop: 5

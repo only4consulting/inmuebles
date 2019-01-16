@@ -22,19 +22,19 @@ const styles = {
     width: null
   },
   welcomeText: {
-    fontFamily: "BGBold",
+    fontFamily: "Brandon_bld",
     fontSize: 20,
     textAlign: "center",
     color: "#D0D2D2"
   },
   appNameText: {
-    fontFamily: "BGBold",
+    fontFamily: "Brandon_bld",
     fontSize: 25,
     textAlign: "center",
     color: "#AB81A1"
   },
   introText: {
-    fontFamily: "BGMedium",
+    fontFamily: "Brandon_med",
     fontSize: 20,
     textAlign: "center",
     color: "#000",
@@ -46,7 +46,7 @@ const styles = {
     justifyContent: "center"
   },
   getStartedText: {
-    fontFamily: "BGBold",
+    fontFamily: "Brandon_bld",
     fontSize: 25,
     textAlign: "center",
     color: "#000"

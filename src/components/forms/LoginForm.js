@@ -41,7 +41,7 @@ const styles = {
     marginTop: 20
   },
   registerText: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 16,
     color: "#000",
     marginTop: 20,

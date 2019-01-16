@@ -26,7 +26,7 @@ const styles = {
     paddingVertical: 8
   },
   text: {
-    fontFamily: "LatoRegular",
+    fontFamily: "Lato-Regular",
     fontSize: 16,
     color: "#FFF"
   },

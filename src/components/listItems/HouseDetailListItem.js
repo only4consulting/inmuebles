@@ -20,12 +20,12 @@ const styles = {
     marginTop: 20
   },
   title: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 15,
     color: "#000"
   },
   subtitle: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 13,
     color: "#5F5F5F",
     marginTop: 5

@@ -30,7 +30,7 @@ const styles = {
   },
   title: {
     color: "#000",
-    fontFamily: "LatoBold",
+    fontFamily: "Lato-Bold",
     fontSize: 18,
     ...Platform.select({
       android: { marginLeft: 15 }

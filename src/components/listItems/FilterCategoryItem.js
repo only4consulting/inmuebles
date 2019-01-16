@@ -37,7 +37,7 @@ const baseStyles = {
     alignItems: "center"
   },
   label: {
-    fontFamily: "AvenirMedium",
+    fontFamily: "Avenir-Medium",
     fontSize: 15,
     color: "#000"
   }
