@@ -13,7 +13,7 @@ const RootStack = createStackNavigator(
     _filterResult: Screens.FilterResult
   },
   {
-    initialRouteName: '_home',
+    initialRouteName: '_dashboard',
     navigationOptions: {
       gesturesEnabled: false,
       header: null
