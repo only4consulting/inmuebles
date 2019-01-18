@@ -11,7 +11,7 @@ const RentalsList = (props) => {
       refreshControl={<RefreshControl refreshing={props.loading} onRefresh={() => props.doSetRentalItems(props.activeExploreTabItemIndex)} />}
       dataArray={(props.rentals[props.activeExploreTabItemIndex] !== undefined) ? props.rentals[props.activeExploreTabItemIndex] : []}
       renderRow={rental => (
-        <RentalsListItem {...rental} onPress={() => props.onItemPress()} />
+        <RentalsListItem {...rental} onPress={(data) => props.onItemPress(data)} />
       )}
     />
   );

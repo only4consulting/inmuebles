@@ -11,7 +11,7 @@ const RentalsListItem = (props) => {
           horizontal={true}
           data={props.rentalItems}
           renderItem={({ item }) => (
-            <RentalItem spaced {...item} onPress={() => props.onPress()} />
+            <RentalItem spaced {...item} onPress={() => props.onPress(item.data)} />
           )}
         />
       </View>

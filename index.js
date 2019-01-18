@@ -1,16 +1,15 @@
 import React from 'react';
-import { AppRegistry } from 'react-native';
+import { AppRegistry, YellowBox } from 'react-native';
 import { Provider } from 'react-redux';
 import { configureStore } from './src/store/configureStore';
-import { getFilters } from './src/actions/filterActions';
 import { setTabLabels } from './src/actions/dashboardActions';
-import App from './App';
+import Routes from './Routes';
+
+//Ignorar el warning de isMounted
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 
 // Crear store
 const store = configureStore();
-
-// Obtener parámetrización de la aplicación
-store.dispatch(getFilters());
 
 // Obtener labels de las pestañas
 store.dispatch(setTabLabels());
@@ -19,7 +18,7 @@ store.dispatch(setTabLabels());
 const AppContainer = () => {
   return (
     <Provider store={store}>
-      <App />
+      <Routes />
     </Provider>
   );
 };

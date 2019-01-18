@@ -25,8 +25,9 @@ class Dashboard extends Component {
     });
   }
 
-  onHouseListItemPress() {
-    this.props.navigation.navigate("_houseDetail");
+  onHouseListItemPress(data) {
+    console.log("LLegó data de propiedad", data);
+    this.props.navigation.navigate("_houseDetail", { data });
   }
 
   render() {
@@ -54,7 +55,7 @@ class Dashboard extends Component {
                 activeTabItem={this.props.activeExploreTabItem}
                 onTabItemPress={index => this.onExploreTabItemPress(index)}
                 rentalsListings={this.props.rentalsListings}
-                onItemPress={() => this.onHouseListItemPress()} />
+                onItemPress={(data) => this.onHouseListItemPress(data)} />
             </Tab>
 
           </Tabs>

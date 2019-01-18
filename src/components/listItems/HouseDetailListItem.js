@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
-import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
-function HouseDetailListItem(props) {
+const HouseDetailListItem = (props) => {
   return (
     <View style={styles.container}>
-      <Feather name={props.icon} style={styles.icon} />
+      <AntDesign name={props.icon} style={styles.icon} />
       <View style={{ marginLeft: 10 }}>
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.subtitle}>{props.subtitle}</Text>
@@ -28,7 +28,8 @@ const styles = {
     fontFamily: "Avenir-Medium",
     fontSize: 13,
     color: "#5F5F5F",
-    marginTop: 5
+    marginTop: 5,
+    marginRight: 20
   },
   icon: {
     color: "#5F5F5F",

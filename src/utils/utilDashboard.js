@@ -1,23 +1,24 @@
 import firebase from 'react-native-firebase';
+import i18n from '../i18n';
 
 export const getItemsGroupedByHighlight = async () => {
 
   //Crear un array con los encabezados
   let items = [
     {
-      heading: "Casas en venta",
+      heading: i18n.t('cab_casas_venta'),
       rentalItems: []
     },
     {
-      heading: "Departamentos en venta",
+      heading: i18n.t('cab_dpto_venta'),
       rentalItems: []
     },
     {
-      heading: "Departamentos en alquiler",
+      heading: i18n.t('cab_dpto_alquiler'),
       rentalItems: []
     },
     {
-      heading: "Terrenos en venta",
+      heading: i18n.t('cab_terr_venta'),
       rentalItems: []
     }
   ];
@@ -266,4 +267,121 @@ export const getItemsGroupedByVisits = async () => {
 
   return items;
 
+}
+
+export const buildItemData = (data) => {
+
+  let houseDetails = [];
+
+  //Devolver el contenido en base al tipo de inmueble
+  switch (data.tipo) {
+
+    //Si es una casa, departamento, duplex
+    case 'casa':
+    case 'departamento':
+    case 'duplex':
+
+      //===================LINEA1===================//
+      //Armar cada uno de los textos individualmente
+      const dormitorios = `${data.dormitorios} ${(data.dormitorios <= 1) ? i18n.t('dormitorio') + ', ' : i18n.t('dormitorios') + ', '}`;
+      const living = `${(data.living) ? i18n.t('living') + ', ' : ''}`;
+      const comedor = `${(data.comedor) ? i18n.t('comedor') + ', ' : ''}`;
+      const comedor_diario = `${(data.comedor_diario) ? i18n.t('comedor_diario') + ', ' : ''}`;
+      const banos = `${data.banos} ${(data.banos <= 1) ? i18n.t('banio') : i18n.t('banios')}`;
+
+      //Concatenar el texto
+      const texto = `${dormitorios}${living}${comedor}${comedor_diario}${banos}.`;
+
+      //Ejemplo: 2 dormitorios, living, comedor, 1 baño.
+      let item = {
+        icon: 'layout',
+        title: i18n.t('ambientes'),
+        subtitle: texto
+      }
+
+      //Agregar el texto al array
+      houseDetails.push(item);
+
+      //===================LINEA2===================//
+      //Armar cada uno de los textos individualmente
+      const apta_credito = `${(data.apta_credito) ? i18n.t('apta_credito') + '. ' : ''}`;
+      const precio = `${data.precio} ${i18n.t(data.moneda)}`;
+
+      texto = `${i18n.t(data.operacion)}. ${apta_credito}${precio}.`;
+
+      //Ejempo: Propiedad en venta. Apta para crédito hipotecario. 47.000 dólares.
+      item = {
+        icon: 'infocirlceo',
+        title: i18n.t('operacion_precio'),
+        subtitle: texto
+      }
+
+      //Agregar el texto al array
+      houseDetails.push(item);
+
+      //===================LINEA3===================//
+      //Armar cada uno de los textos individualmente
+      if (data.cochera === 0) {
+        texto = i18n.t('sin_cochera')
+      } else {
+        texto = `${i18n.t('estacionamiento_para')} ${data.cochera} ${(data.cochera <= 1) ? i18n.t('vehiculo') : i18n.t('vehiculos')}`;
+      }
+
+      //Ejempo: Cochera para 1 vehículo.
+      item = {
+        icon: 'car',
+        title: i18n.t('estacionamiento'),
+        subtitle: texto
+      }
+
+      //Agregar el texto al array
+      houseDetails.push(item);
+
+      //===================LINEA4===================//
+      //Ejempo: 10/01/2019 06:55 PM
+      item = {
+        icon: 'arrowsalt',
+        title: i18n.t('medida_terreno'),
+        subtitle: data.superficie + ' ' + i18n.t('metros_cuadrados')
+      }
+
+      //Agregar el texto al array
+      houseDetails.push(item);
+
+      //===================LINEA5===================//
+      //Ejempo: 10/01/2019 06:55 PM
+      item = {
+        icon: 'calendar',
+        title: i18n.t('fecha_pub'),
+        subtitle: data.fecha_alta.toLocaleString()
+      }
+
+      //Agregar el texto al array
+      houseDetails.push(item);
+
+    //Si es una casa, departamento, duplex
+    case 'terreno' || 'cochera':
+
+      //Ejempo: 56 metros cuadrados
+      item = {
+        icon: 'arrowsalt',
+        title: i18n.t('medida_terreno'),
+        subtitle: data.superficie + ' ' + i18n.t('metros_cuadrados')
+      }
+
+      //Agregar el texto al array
+      houseDetails.push(item);
+
+      break;
+  }
+
+  return houseDetails;
+
+  //   <View style={styles.container}>
+  //     <Feather name="calendar" style={styles.icon} />
+  //     <View style={{ marginLeft: 10 }}>
+  //       <Text style={styles.title}>Fecha de publicación</Text>
+  //       <Text style={styles.subtitle}>10/01/2019 06:55 PM</Text>
+  //     </View>
+  //   </View>
 }

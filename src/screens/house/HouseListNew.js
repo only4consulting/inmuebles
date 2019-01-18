@@ -13,7 +13,7 @@ const renderBody = (props) => {
   return (
     <Lists.RentalsList
       rentals={props.rentalsListings}
-      onItemPress={() => props.onItemPress()}
+      onItemPress={(data) => props.onItemPress(data)}
     />
   );
 }
