@@ -360,7 +360,8 @@ export const buildItemData = (data) => {
       houseDetails.push(item);
 
     //Si es una casa, departamento, duplex
-    case 'terreno' || 'cochera':
+    case 'terreno':
+    case 'cochera':
 
       //Ejempo: 56 metros cuadrados
       item = {
@@ -377,11 +378,4 @@ export const buildItemData = (data) => {
 
   return houseDetails;
 
-  //   <View style={styles.container}>
-  //     <Feather name="calendar" style={styles.icon} />
-  //     <View style={{ marginLeft: 10 }}>
-  //       <Text style={styles.title}>Fecha de publicación</Text>
-  //       <Text style={styles.subtitle}>10/01/2019 06:55 PM</Text>
-  //     </View>
-  //   </View>
 }
