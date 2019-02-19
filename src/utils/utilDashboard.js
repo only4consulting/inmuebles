@@ -1,4 +1,5 @@
 import firebase from 'react-native-firebase';
+import shuffle from 'shuffle-array';
 import i18n from '../i18n';
 
 export const getItemsGroupedByHighlight = async () => {
@@ -85,6 +86,19 @@ export const getItemsGroupedByHighlight = async () => {
 
   });
 
+  //Mezclar los ítems y devolver solo 5 de cada categoría
+  shuffle(items[0].rentalItems)
+  items[0].rentalItems.splice(5, 9999);
+
+  shuffle(items[1].rentalItems)
+  items[1].rentalItems.splice(5, 9999);
+
+  shuffle(items[2].rentalItems)
+  items[2].rentalItems.splice(5, 9999);
+
+  shuffle(items[3].rentalItems)
+  items[3].rentalItems.splice(5, 9999);
+
   return items;
 
 }
@@ -111,8 +125,13 @@ export const getItemsGroupedByDate = async () => {
     }
   ];
 
+  //Obtener solo 4 semanas de antiguedad (ahora son 8 para probar)
+  const fecha = Date.now() - 4838400000;
+  const fechaHasta = new Date(fecha);
+
   //Obtener todas las propiedades por fecha
   const data = await firebase.firestore().collection('inmuebles')
+    .where('fecha_alta', '>=', fechaHasta)
     .orderBy('fecha_alta', 'DESC')
     .get();
 
@@ -174,6 +193,12 @@ export const getItemsGroupedByDate = async () => {
     }
 
   });
+
+  //Devolver solo 5 de cada categoría
+  items[0].rentalItems.splice(5, 9999);
+  items[1].rentalItems.splice(5, 9999);
+  items[2].rentalItems.splice(5, 9999);
+  items[3].rentalItems.splice(5, 9999);
 
   return items;
 
@@ -264,6 +289,12 @@ export const getItemsGroupedByVisits = async () => {
     }
 
   });
+
+  //Devolver solo 5 de cada categoría
+  items[0].rentalItems.splice(5, 9999);
+  items[1].rentalItems.splice(5, 9999);
+  items[2].rentalItems.splice(5, 9999);
+  items[3].rentalItems.splice(5, 9999);
 
   return items;
 

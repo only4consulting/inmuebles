@@ -1,15 +1,18 @@
-import React, { Component } from "react";
-import { View, Image, Text } from "react-native";
-import { SafeAreaView } from "react-navigation";
-import { Container, Content } from "native-base";
-import Feather from 'react-native-vector-icons/Feather';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { Constants } from "../../config";
-import { Headers, Modals, ListItems, Buttons } from "../../components";
+import React, { Component } from 'react';
+import { View, Image, Text, Animated, Dimensions, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
+import { Container, Content } from 'native-base';
+import { Headers, Modals, ListItems, Buttons } from '../../components';
 import i18n from '../../i18n';
 import { buildItemData } from '../../utils/utilDashboard';
 
+//Acho del dispositovo, de la barra y espaciado
+const deviceWidth = Dimensions.get('window').width
+const FIXED_BAR_WIDTH = 280
+const BAR_SPACE = 10
+
 class HouseDetail extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +32,75 @@ class HouseDetail extends Component {
   }
 
   render() {
+
+    //Estos son los parámetros que me envío
     const data = this.props.navigation.getParam('data', 'NO_DATA');
+
+    //Array con los imágenes
+    const images = data.imagenes;
+
+    //Cantidad de imágenes
+    const numItems = images.length
+
+    //Ancho de cada ítem
+    const itemWidth = (FIXED_BAR_WIDTH / numItems) - ((numItems - 1) * BAR_SPACE)
+
+    //????
+    const animVal = new Animated.Value(0)
+
+    //Array para renderizar las imágenes y las barras
+    let imageArray = []
+    let barArray = []
+
+    //Recorrer cada una de las imagenes y devolverla en un elemento UI 
+    images.forEach((image, i) => {
+
+      //Agregar la imagen al array
+      const thisImage = (
+        <Image
+          key={`image${i}`}
+          source={{ uri: image }}
+          style={{ width: deviceWidth }}
+          resizeMode="cover"
+        />
+      )
+      imageArray.push(thisImage)
+
+      const scrollBarVal = animVal.interpolate({
+        inputRange: [deviceWidth * (i - 1), deviceWidth * (i + 1)],
+        outputRange: [-itemWidth, itemWidth],
+        extrapolate: 'clamp',
+      })
+
+      //Agregar la barra animada
+      const thisBar = (
+        <View
+          key={`bar${i}`}
+          style={[
+            styles.track,
+            {
+              width: itemWidth,
+              marginLeft: i === 0 ? 0 : BAR_SPACE,
+            },
+          ]}
+        >
+          <Animated.View
+
+            style={[
+              styles.bar,
+              {
+                width: itemWidth,
+                transform: [
+                  { translateX: scrollBarVal },
+                ],
+              },
+            ]}
+          />
+        </View>
+      )
+      barArray.push(thisBar)
+    })
+
     return (
       <SafeAreaView
         style={{ backgroundColor: "#FFF", flex: 1 }}
@@ -41,12 +112,27 @@ class HouseDetail extends Component {
             nomargin={true}
             onBackPress={() => this.props.navigation.goBack()}
           />
-          <View style={{ height: 200 }}>
-            <Image
-              source={{ uri: data.imagenes[1] }}
-              style={styles.image}
-              resizeMode="cover"
-            />
+          <View style={{
+            height: 200,
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              scrollEventThrottle={10}
+              pagingEnabled
+              onScroll={
+                Animated.event(
+                  [{ nativeEvent: { contentOffset: { x: animVal } } }]
+                )
+              }>
+              {imageArray}
+            </ScrollView>
+            <View style={styles.barContainer}>
+              {barArray}
+            </View>
           </View>
           <Content style={styles.content}>
             <Text style={styles.title}>
@@ -120,7 +206,25 @@ const styles = {
   container: {
     flexDirection: "row",
     marginTop: 20
-  }
+  },
+  barContainer: {
+    position: 'absolute',
+    zIndex: 2,
+    top: 40,
+    flexDirection: 'row',
+  },
+  track: {
+    backgroundColor: '#ccc',
+    overflow: 'hidden',
+    height: 2,
+  },
+  bar: {
+    backgroundColor: '#5294d6',
+    height: 2,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+  },
 };
 
 export default HouseDetail;
