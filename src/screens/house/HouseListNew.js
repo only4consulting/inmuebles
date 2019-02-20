@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import { Tabs, Lists } from "../../components";

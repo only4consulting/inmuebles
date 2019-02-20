@@ -26,7 +26,6 @@ class Dashboard extends Component {
   }
 
   onHouseListItemPress(data) {
-    console.log("LLegó data de propiedad", data);
     this.props.navigation.navigate("_houseDetail", { data });
   }
 
