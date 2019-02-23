@@ -300,6 +300,33 @@ export const getItemsGroupedByVisits = async () => {
 
 }
 
+export const getClientItems = async () => {
+
+  //Crear un array para guardar las inmobiliarias
+  let items = [];
+
+  //Obtener todas las propiedades por fecha
+  const data = await firebase.firestore().collection('inmobiliarias')
+    .orderBy('nombre', 'asc')
+    .get();
+
+  //Recorrer los documentos encontrados
+  data.docs.map(doc => {
+
+    //Armar un objeto con los datos + el ID
+    let obj = {
+      __id: doc.id,
+      ...doc.data()
+    };
+
+    items.push(obj);
+
+  });
+
+  return items;
+
+}
+
 export const buildItemData = (data) => {
 
   let houseDetails = [];

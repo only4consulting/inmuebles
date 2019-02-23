@@ -10,6 +10,7 @@ export default {
   detalle_inmueble: "House Details",
   dolares: "Dollars",
   Dolares: "Dollars",
+  Dólares: "Dollars",
   pesos: "Argentine Peso",
   dormitorio: "bethroom",
   dormitorios: "bethrooms",

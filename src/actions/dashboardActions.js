@@ -1,6 +1,6 @@
 import i18n from '../i18n';
 import { Constants } from '../config';
-import { getItemsGroupedByHighlight, getItemsGroupedByDate, getItemsGroupedByVisits } from '../utils/utilDashboard';
+import { getItemsGroupedByHighlight, getItemsGroupedByDate, getItemsGroupedByVisits, getClientItems } from '../utils/utilDashboard';
 
 export const SET_ACTIVE_TAB = 'SET_ACTIVE_TAB';
 export const SET_TAB_LABELS = 'SET_TAB_LABELS';
@@ -67,6 +67,9 @@ export const setRentalItems = (indx) => async (dispatch, getState) => {
       items[2] = await getItemsGroupedByVisits();
       break;
 
+    case 3:
+      //Obtener inmobiliarias
+      items[3] = await getClientItems();
     default:
       break;
   }
