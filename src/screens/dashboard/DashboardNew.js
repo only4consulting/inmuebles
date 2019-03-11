@@ -6,6 +6,8 @@ import { setActiveTab } from '../../actions/dashboardActions';
 import styles from "./styles";
 import { TabItems } from "../../components";
 import HouseList from "../house/HouseListNew";
+import SplashScreen from 'react-native-splash-screen'
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -14,7 +16,11 @@ class Dashboard extends Component {
       currentPage: 1
     };
   }
-
+//oculta la pantalla Splash
+  componentDidMount(){ 
+    SplashScreen.hide();
+   
+  }
   onExploreTabItemPress(index) {
     this.props.doSetActiveTab(index, this.props.exploreTabLabels[index]);
   }
