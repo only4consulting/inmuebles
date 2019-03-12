@@ -37,13 +37,9 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
             new VectorIconsPackage(),
-            new SplashScreenReactPackage(),
             new RNI18nPackage(),
             new RNFirebasePackage(),
-            new VectorIconsPackage(),
             new SplashScreenReactPackage(),
-            new RNI18nPackage(),
-            new RNFirebasePackage(),
             new RNFirebaseDatabasePackage(),
             new RNFirebaseFirestorePackage()
     );
